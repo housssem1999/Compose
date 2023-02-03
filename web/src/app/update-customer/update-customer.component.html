@@ -1,0 +1,15 @@
+<button (click)="showUpdateComponent()">{{text}}</button>
+<form *ngIf="showUpdate">
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="UpdateCustomer.name" name="name">
+    </label>
+    <br><br>
+    <label>
+      Email:
+      <input type="text" [(ngModel)]="UpdateCustomer.email" name="email">
+    </label>
+    <br><br>
+    <button (click)="onClick()">Update Customer</button>
+</form>
+  
