@@ -1,11 +1,14 @@
-<form (ngSubmit)="onSubmit()">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" [(ngModel)]="customer.name" name="name" id="name">
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" [(ngModel)]="customer.email" name="email" id="email">
-    </div>
-    <button type="submit">Add Customer</button>
-</form>
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="UpdateCustomer.email" name="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="UpdateCustomer.name" name="name">
+        </div>
+        
+        <button class="btn btn-primary" (click)="onClick()">Add Customer</button>
+    </form>
+</div>

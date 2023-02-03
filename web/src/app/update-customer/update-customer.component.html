@@ -1,15 +1,13 @@
-<button (click)="showUpdateComponent()">{{text}}</button>
+<button class="btn btn-primary" (click)="showUpdateComponent()">{{text}}</button>
 <form *ngIf="showUpdate">
-    <label>
-      Name:
-      <input type="text" [(ngModel)]="UpdateCustomer.name" name="name">
-    </label>
-    <br><br>
-    <label>
-      Email:
-      <input type="text" [(ngModel)]="UpdateCustomer.email" name="email">
-    </label>
-    <br><br>
-    <button (click)="onClick()">Update Customer</button>
-</form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" [(ngModel)]="UpdateCustomer.email" name="email" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Name</label>
+    <input type="text" class="form-control" [(ngModel)]="UpdateCustomer.name" name="name">
+  </div>
   
+  <button class="btn btn-primary" (click)="onClick()">Submit</button>
+</form>

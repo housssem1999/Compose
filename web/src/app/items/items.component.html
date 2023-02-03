@@ -1,8 +1,14 @@
 <app-add-customer (add)="addItems($event)"></app-add-customer>
-<ul>
-    <li *ngFor="let customer of items" >
-        {{ customer.name }} - {{ customer.email }}
-        <app-delete-customer (delete)="onDelete($event)" [customerId]="customer._id"></app-delete-customer>
-        <app-update-customer (update)="onUpdate($event)" [customerId]="customer._id" ></app-update-customer>
-    </li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let customer of items"  class="col-sm-6">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ customer.name }}</h5>
+                <p class="card-text">{{ customer.email }} </p>
+                <app-delete-customer (delete)="onDelete($event)" [customerId]="customer._id"></app-delete-customer>
+                <app-update-customer (update)="onUpdate($event)" [customerId]="customer._id" ></app-update-customer>    
+            </div>
+        </div>
+    </div>
+</div>
