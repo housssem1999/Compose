@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CustomerService {
   
-  url: string = 'http://0.0.0.0:80/items/';
+  url: string = 'http://spring:8080/api/products';
   constructor(private http: HttpClient) { }
 
   addCustomer(customer: object) {
@@ -14,7 +14,7 @@ export class CustomerService {
   }
 
   deleteCustomer(customerId: string) {
-    return this.http.delete(this.url + customerId);
+    return this.http.delete(this.url +'/'+ customerId);
   }
 
   getCustomers() {
@@ -22,11 +22,16 @@ export class CustomerService {
   }
 
   getCustomer(customerId: string) {
-    return this.http.get(this.url + customerId);
+    return this.http.get(this.url + '/' + customerId);
   }
 
   updateCustomer(customerId: string, customer: object) {
-    return this.http.put(this.url + customerId, customer);
+    return this.http.put(this.url + '/' + customerId, customer);
   }
+
+  searchCustomer(customerName: string) {
+    return this.http.get(this.url + '/search/?name=' + customerName);
+  }
+
   
 }

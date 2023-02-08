@@ -7,7 +7,7 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-  customer = { name: '', email: '' };
+  customer = { name: '', description: '' };
   @Output() add: EventEmitter<object> = new EventEmitter();
 
   constructor(private customerService: CustomerService) { }
@@ -17,6 +17,6 @@ export class AddCustomerComponent implements OnInit {
 
   onSubmit() {
     this.add.emit(this.customer);
-    this.customer = { name: '', email: '' };
+    this.customer = { name: '', description: '' };
   }
 }

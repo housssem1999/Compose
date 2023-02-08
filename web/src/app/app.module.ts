@@ -9,6 +9,7 @@ import { DeleteCustomerComponent } from './delete-customer/delete-customer.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdateCustomerComponent } from './update-customer/update-customer.compo
     ItemsComponent,
     AddCustomerComponent,
     DeleteCustomerComponent,
-    UpdateCustomerComponent
+    UpdateCustomerComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

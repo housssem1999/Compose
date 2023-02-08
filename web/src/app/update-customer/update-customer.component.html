@@ -1,11 +1,11 @@
 <button class="btn btn-primary" (click)="showUpdateComponent()">{{text}}</button>
-<form *ngIf="showUpdate">
+<form *ngIf="showUpdate" class="form">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" [(ngModel)]="UpdateCustomer.email" name="email" aria-describedby="emailHelp">
+    <label  class="form-label">description</label>
+    <input type="text" class="form-control" [(ngModel)]="UpdateCustomer.description" name="description">
   </div>
   <div class="mb-3">
-    <label for="exampleInputName" class="form-label">Name</label>
+    <label class="form-label">Name</label>
     <input type="text" class="form-control" [(ngModel)]="UpdateCustomer.name" name="name">
   </div>
   

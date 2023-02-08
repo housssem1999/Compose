@@ -12,10 +12,11 @@ export class ItemsComponent implements OnInit {
   constructor(private customerService:CustomerService) { }
 
   ngOnInit(): void {
+    //how to call get from services
     this.customerService.getCustomers().subscribe((data: any)=>{
       console.log(data);
-      this.items = data.items;
-    })
+      this.items = data;
+    });
   }
 
   onDelete(id: string) {
@@ -23,7 +24,7 @@ export class ItemsComponent implements OnInit {
       console.log('Deleted from items.component.ts');
       this.customerService.getCustomers().subscribe((data: any)=>{
         console.log(data);
-        this.items = data.items;
+        this.items = data;
       })
     });
  
@@ -34,7 +35,7 @@ export class ItemsComponent implements OnInit {
       console.log(data);
       this.customerService.getCustomers().subscribe((data: any)=>{
         console.log(data);
-        this.items = data.items;
+        this.items = data;
       })
     });
   }
@@ -44,9 +45,17 @@ export class ItemsComponent implements OnInit {
     this.customerService.updateCustomer(Item.id, Item.item).subscribe(data =>{
       console.log(data);
       this.customerService.getCustomers().subscribe((data: any)=>{
-        this.items = data.items;
+        this.items = data;
         console.log(this.items);
       })
+    });
+  }
+
+  searchItems(searchWord: string) {
+    console.log('Search button clicked ' + searchWord);
+    this.customerService.searchCustomer(searchWord).subscribe((data: any)=>{
+      console.log(data);
+      this.items = data;
     });
   }
 

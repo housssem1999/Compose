@@ -11,7 +11,7 @@ export class UpdateCustomerComponent implements OnInit {
   
   UpdateCustomer: object={
     "name": "",
-    "email": "",
+    "description": "",
   };
 
   @Output() update: EventEmitter<object> = new EventEmitter<object>();

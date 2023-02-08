@@ -1,16 +1,15 @@
-FROM python:3.9
+# Use an existing Java 11 image as the base
+FROM openjdk:17 as buillder
 
-# 
-WORKDIR /code
+# Set the working directory in the container
+WORKDIR /app
 
-# 
-COPY ./requirements.txt /code/requirements.txt
+COPY . /app
+# Copy the compiled jar file of the demo application to the container
+COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo.jar
 
-# 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# Set the command to run when the container starts
+ENTRYPOINT ["java", "-jar", "/app/demo.jar"]
 
-# 
-COPY ./app /code/app
-
-# 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+# Expose port 8080 to allow incoming traffic
+EXPOSE 8080
