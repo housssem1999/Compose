@@ -2,14 +2,15 @@
 <app-add-customer (add)="addItems($event)"></app-add-customer>
 <div class="container">
     <div class="row">
-        <div *ngFor="let customer of items"  class="col-sm-6">
+        <div *ngFor="let customer of items | paginate: { itemsPerPage: 4, currentPage: p }"  class="col-sm-6">
             <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ customer.name }}</h5>
-                <p class="card-text">{{ customer.description }} </p>
-                <app-delete-customer (delete)="onDelete($event)" [customerId]="customer.id"></app-delete-customer>
-                <app-update-customer (update)="onUpdate($event)" [customerId]="customer.id" ></app-update-customer>    
+                <div class="card-body">
+                    <h5 class="card-title">{{ customer.name }}</h5>
+                    <p class="card-text">{{ customer.description }} </p>
+                    <app-delete-customer (delete)="onDelete($event)" [customerId]="customer.id"></app-delete-customer>
+                    <app-update-customer (update)="onUpdate($event)" [customerId]="customer.id" ></app-update-customer>    
+                </div>
             </div>
         </div>
-    </div>
+    <pagination-controls *ngIf="items.length > 0" class="pagination" (pageChange)="p = $event"></pagination-controls>
 </div>
