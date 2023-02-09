@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CustomerService {
-  
-  url: string = 'http://spring:8080/api/products';
+
+  url: string = 'http://localhost:8083/api/products';
   constructor(private http: HttpClient) { }
 
   addCustomer(customer: object) {
@@ -33,5 +33,5 @@ export class CustomerService {
     return this.http.get(this.url + '/search/?name=' + customerName);
   }
 
-  
+
 }
