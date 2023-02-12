@@ -1,15 +1,17 @@
-# Use an existing Java 11 image as the base
-FROM openjdk:17 as buillder
+# Use an openjdk base image
+FROM openjdk:17-jdk-slim
 
-# Set the working directory in the container
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+
+# Set the working directory
 WORKDIR /app
 
-COPY . /app
-# Copy the compiled jar file of the demo application to the container
-COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo.jar
+# Copy the source code to the container
+COPY . .
 
-# Set the command to run when the container starts
-ENTRYPOINT ["java", "-jar", "/app/demo.jar"]
+# Build the application
+RUN mvn clean package -DskipTests
 
-# Expose port 8080 to allow incoming traffic
-EXPOSE 8080
+# Set the entry point for the container
+ENTRYPOINT ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
