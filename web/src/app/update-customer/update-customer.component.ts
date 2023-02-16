@@ -9,7 +9,7 @@ import { CustomerService } from '../customer.service';
 export class UpdateCustomerComponent implements OnInit {
   @Input () customerId: string;
   
-  UpdateCustomer: object={
+  UpdateCustomer: any={
     "name": "",
     "description": "",
   };
