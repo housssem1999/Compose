@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 import { SearchComponent } from './search/search.component';
 import { ItemComponent } from './item/item.component';
+import { MyLibModule } from 'my-lib-by-houssem-moussa';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ItemComponent } from './item/item.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

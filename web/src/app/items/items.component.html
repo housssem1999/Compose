@@ -4,7 +4,7 @@
     <div class="row">
         <div *ngFor="let customer of items | paginate: { itemsPerPage: 4, currentPage: p }"  class="col-sm-6">
             <div class="card" >
-                <app-item [customer]="customer"></app-item>
+                <lib-my-lib [customer]="customer"></lib-my-lib>
                 <app-delete-customer (delete)="onDelete($event)" [customerId]="customer.id"></app-delete-customer>
                 <app-update-customer (update)="onUpdate($event)" [customerId]="customer.id" ></app-update-customer>    
             </div>
