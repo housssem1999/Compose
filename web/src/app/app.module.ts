@@ -12,6 +12,7 @@ import { UpdateCustomerComponent } from './update-customer/update-customer.compo
 import { SearchComponent } from './search/search.component';
 import { ItemComponent } from './item/item.component';
 import { MyLibModule } from 'my-lib-by-houssem-moussa';
+import { MyButtonLibraryModule } from 'my-button-spec-library';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MyLibModule } from 'my-lib-by-houssem-moussa';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    MyLibModule
+    MyLibModule,
+    MyButtonLibraryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

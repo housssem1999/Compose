@@ -6,7 +6,7 @@
             <div class="card" >
                 <div class="card-body">
                     <lib-my-lib [customer]="customer"></lib-my-lib>
-                    <app-delete-customer (delete)="onDelete($event)" [customerId]="customer.id"></app-delete-customer>
+                    <lib-my-button [label]="'Delete'" [Identity]="customer.id" (buttonPressed)="onDelete($event)" ></lib-my-button>
                     <app-update-customer (update)="onUpdate($event)" [customerId]="customer.id" ></app-update-customer>    
                 </div>    
             </div>
